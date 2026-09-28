@@ -6,11 +6,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='3' fill='%23131b2a'/%3E%3Cpath d='M8 23V9h3l10 9V9h3v14h-3L11 14v9z' fill='%23ff5c35'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="styles.css"></head>
+<link rel="stylesheet" href="./styles.css?v=3"></head>
 <body><a class="skip" href="#main">Skip to content</a>
 <header class="topbar">
   <a class="wordmark" href="#top"><span>NR</span> Nikshitha Rapolu</a>
-  <nav aria-label="Primary"><a href="#projects">Work</a><a href="#experience">Experience</a><a href="#about">Profile</a></nav>
+  <nav aria-label="Primary"><a href="#projects">Work</a><a href="#experience">Experience</a><a href="#publication">Publication</a><a href="#about">Profile</a></nav>
   <div class="sidebar-status"><span>OPEN TO WORK</span><small>Full-time AI/ML &amp; Software engineering roles</small></div>
   <div class="top-actions"><a href="mailto:nikshitharapolu@gmail.com" aria-label="Email Nikshitha" title="Email">Email</a><a href="https://www.linkedin.com/in/nikshitha-rapolu-18960321a/" target="_blank" rel="noreferrer" aria-label="Nikshitha on LinkedIn" title="LinkedIn">LinkedIn ↗</a><a href="https://github.com/nikshitharapolu" target="_blank" rel="noreferrer" aria-label="Nikshitha on GitHub" title="GitHub">GitHub ↗</a></div>
 </header>
@@ -80,7 +80,7 @@
   </div>
 </section>
 <section class="projects-readable" id="projects">
-  <header class="readable-heading reveal"><p class="micro">01 / SELECTED PROJECTS</p><div><h2>Work that solves<br><em>real problems.</em></h2><p>Four systems, each built the way I'd want to inherit them - documented, tested, and grounded in real data.</p></div></header>
+  <header class="readable-heading reveal"><p class="micro">PROJECTS</p><div><h2>Work that solves<br><em>real problems.</em></h2><p>Four systems, each built the way I'd want to inherit them - documented, tested, and grounded in real data.</p></div></header>
   <div class="project-list">
     <article class="project-card featured reveal" data-mark="CD">
       <div class="project-number">01</div><div class="project-content">
@@ -96,17 +96,19 @@
     <article class="project-card featured reveal" data-mark="IR">
       <div class="project-number">02</div><div class="project-content">
         <div class="project-labels"><span>Information retrieval</span><span>Secure RAG</span><span>Live</span></div><h3>Hybrid Search &amp; Secure RAG Platform</h3>
-        <p class="project-summary">Search that understands both keywords and meaning, then grounds every answer in cited evidence. Not just another RAG demo - this one is hardened against bad inputs, containerized, and stress-tested before anything ships.</p>
+        <p class="project-summary">Search that understands both keywords and meaning, then backs every answer with cited evidence. I wanted more than another RAG demo, so it checks its own results, retries once if they look weak, and says "I don't have enough information" instead of guessing.</p>
 <ul>
   <li>Fuses BM25 ranking with 384-dimensional MiniLM embeddings and evaluates retrieval quality using NDCG@10 and Recall@10.</li>
   <li>Supports PDF, TXT, and Markdown ingestion, overlapping chunks, persistent embedding caching, duplicate detection, prompt-injection protection, and validated fallback responses.</li>
+  <li>A LangGraph workflow, with a local Ollama model connected through LangChain, checks the evidence, rewrites a weak search and tries again once, then answers with citations or abstains. The app shows every step it took.</li>
+  <li>Compared the original and guided versions on 18 labeled questions and 19 automated tests pass.</li>
   <li>Runs through FastAPI and Streamlit, with Docker Compose, local Kubernetes orchestration, Databricks vector analysis, and Terraform-provisioned S3-compatible storage and least-privilege IAM.</li>
 </ul>
 <div class="project-proof">
   <span><strong>384D</strong> MiniLM embeddings</span>
   <span><strong>6/6</strong> sandbox checks passed</span>
 </div>
-<p class="tech-line">Python · FastAPI · BM25 · Sentence Transformers · Ollama · Docker · Kubernetes · Terraform · Moto · Databricks</p>
+<p class="tech-line">Python · FastAPI · BM25 · Sentence Transformers · LangChain · LangGraph · Ollama · Docker · Kubernetes · Terraform · Moto · Databricks</p>
 
         <div class="project-links"><a class="pill orange" href="https://semantic-search-engine-nr.streamlit.app/" target="_blank" rel="noreferrer">Search demo ↗</a><a class="pill" href="https://github.com/nikshitharapolu/semantic-search-ir" target="_blank" rel="noreferrer">View source ↗</a></div>
       </div>
@@ -132,8 +134,104 @@
     </article>
   </div>
 </section>
-<section class="experience" id="experience"><div class="section-title reveal"><p class="micro">02 / EXPERIENCE</p><h2>Reliability is a<br><em>design decision.</em></h2></div><div class="experience-record reveal"><div class="record-no"></div><div><p class="micro">JUN 2023 — JAN 2025</p><h3>Software Engineer</h3><p class="company">S&amp;P Global Ratings · Hyderabad, India</p></div><div class="record-copy"><p>Built automation and validation systems across UI, API, database, and distributed production layers.</p><ul><li>Built Python and Selenium automation frameworks that validated UI, API, and database layers across a large distributed system, and tuned them to run faster.</li><li>Validated high-volume financial data with SQL pipelines and Databricks, then wired automated testing into CI/CD so issues surfaced before release.</li><li>Diagnosed cross-system defects and engineered reusable utilities that reduced manual validation effort.</li></ul></div></div></section>
-<section class="profile" id="about"><div class="profile-intro reveal"><p class="micro">03 / TECHNICAL PROFILE</p><h2>I don't just train models - I ship them.</h2><p>A working model in a notebook isn't the finish line. Security, testing, and deployment are where I spend most of my time - that's what turns a model into something people can trust.</p></div><div class="profile-grid reveal"><article><span>01</span><h3>AI / ML</h3><p>PyTorch · LLMs · Transformers · Neural Networks · Computer Vision (YOLOv8)</p></article><article><span>02</span><h3>IR / NLP</h3><p>BM25 · Dense Retrieval · Hybrid Search · Sentence Transformers · Semantic Search · RAG · MCP</p></article><article><span>03</span><h3>Systems</h3><p>Python · Java · C · SQL · JavaScript · Data Structures &amp; Algorithms · REST APIs · OOP · Distributed Systems · Automated Testing · CI/CD · Git · Linux · Docker</p></article><article><span>04</span><h3>Data / Web</h3><p>PostgreSQL · MySQL · Oracle · ETL · Database Design · Query Optimization · React · Node.js · Express · FastAPI · HTML/CSS · PHP · Streamlit · Selenium · Databricks · Azure DevOps</p></article></div></section>
-<section class="education"><p class="micro">04 / EDUCATION</p><div class="degree reveal"><div><span>JAN 2025 — DEC 2026</span><h3>University of Massachusetts Amherst</h3><p>MS in Computer Science</p><p class="coursework">Machine Learning · Neural Networks · NLP · Database Systems · Software Engineering · Information Retrieval · Statistics · Data Science Fundamentals</p></div><strong>3.96<small>GPA</small></strong></div><div class="degree reveal"><div><span>AUG 2019 — JUN 2023</span><h3>Vasavi College of Engineering</h3><p>BE in Computer Science &amp; Engineering</p></div><strong>3.68<small>GPA</small></strong></div></section>
+<section class="experience" id="experience"><div class="section-title reveal"><p class="micro"> EXPERIENCE</p><h2>Reliability is a<br><em>design decision.</em></h2></div><div class="experience-record reveal"><div class="record-no"></div><div><p class="micro">JUN 2023 — JAN 2025</p><h3>Software Engineer</h3><p class="company">S&amp;P Global Ratings · Hyderabad, India</p></div><div class="record-copy"><p>Built automation and validation systems across UI, API, database, and distributed production layers.</p><ul><li>Built Python and Selenium automation frameworks that validated UI, API, and database layers across a large distributed system, and tuned them to run faster.</li><li>Validated high-volume financial data with SQL pipelines and Databricks, then wired automated testing into CI/CD so issues surfaced before release.</li><li>Diagnosed cross-system defects and engineered reusable utilities that reduced manual validation effort.</li></ul></div></div></section>
+<section class="research-publication" id="publication">
+  <div class="section-title reveal">
+    <p class="micro">RESEARCH / PUBLICATION</p>
+
+    <h2>
+      Research with<br>
+      <em>real-world impact.</em>
+    </h2>
+  </div>
+
+  <article class="research-paper reveal">
+    <aside class="research-paper__aside">
+      <div class="research-mark" aria-hidden="true">
+        <svg
+          width="28"
+          height="28"
+          viewBox="0 0 24 24"
+          fill="none"
+        >
+          <path
+            d="M7 3.5h7l3 3V20.5H7v-17Z"
+            stroke="currentColor"
+            stroke-width="1.6"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M14 3.5v4h4M10 12h4M10 15.5h4"
+            stroke="currentColor"
+            stroke-width="1.6"
+            stroke-linecap="round"
+          />
+        </svg>
+      </div>
+
+      <div>
+        <p>Published by</p>
+        <strong>Springer</strong>
+        <span>March 2025</span>
+      </div>
+    </aside>
+
+    <div class="research-paper__body">
+      <div class="research-tags">
+        <span>Conference Paper</span>
+        <span>Computer Vision</span>
+        <span>YOLOv5</span>
+      </div>
+
+      <h3>Road Failures Detection System</h3>
+
+      <p class="research-venue">
+        Proceedings of the Third International Conference on Cognitive
+        and Intelligent Computing, Volume 1 · ICCIC 2023
+      </p>
+
+    
+      <div class="research-divider"></div>
+
+      <p class="research-description">
+        Co-authored research on an automated pavement-defect detection
+        system using YOLOv5, covering image preprocessing, model
+        training, evaluation, and deployment through Streamlit.
+      </p>
+
+      <div class="research-facts">
+        <div>
+          <strong>8</strong>
+          <span>Road-defect categories</span>
+        </div>
+
+        <div>
+          <strong>YOLOv5</strong>
+          <span>Detection model</span>
+        </div>
+
+        <div>
+          <strong>Streamlit</strong>
+          <span>Application deployment</span>
+        </div>
+      </div>
+
+      <div class="research-footer">
+        <p>Deep Learning · Object Detection · Computer Vision</p>
+
+        <a
+          href="https://link.springer.com/chapter/10.1007/978-981-97-9262-7_54"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Read the publication
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </div>
+  </article>
+</section>
+<section class="profile" id="about"><div class="profile-intro reveal"><p class="micro">TECHNICAL PROFILE</p><h2>I don't just train models - I ship them.</h2><p>A working model in a notebook isn't the finish line. Security, testing, and deployment are where I spend most of my time - that's what turns a model into something people can trust.</p></div><div class="profile-grid reveal"><article><span>01</span><h3>AI / ML</h3><p>PyTorch · LLMs · Transformers · Neural Networks · Computer Vision (YOLOv8)</p></article><article><span>02</span><h3>IR / NLP</h3><p>BM25 · Dense Retrieval · Hybrid Search · Sentence Transformers · Semantic Search · RAG · MCP</p></article><article><span>03</span><h3>Systems</h3><p>Python · Java · C · SQL · JavaScript · Data Structures &amp; Algorithms · REST APIs · OOP · Distributed Systems · Automated Testing · CI/CD · Git · Linux · Docker</p></article><article><span>04</span><h3>Data / Web</h3><p>PostgreSQL · MySQL · Oracle · ETL · Database Design · Query Optimization · React · Node.js · Express · FastAPI · HTML/CSS · PHP · Streamlit · Selenium · Databricks · Azure DevOps</p></article></div></section>
+<section class="education"><p class="micro">EDUCATION</p><div class="degree reveal"><div><span>JAN 2025 — DEC 2026</span><h3>University of Massachusetts Amherst</h3><p>MS in Computer Science</p><p class="coursework">Machine Learning · Neural Networks · Trustworthy and Responsible AI · NLP · Database Systems · Software Engineering · Information Retrieval · Statistics · Data Science Fundamentals</p></div><strong>3.96<small>GPA</small></strong></div><div class="degree reveal"><div><span>AUG 2019 — JUN 2023</span><h3>Vasavi College of Engineering</h3><p>BE in Computer Science &amp; Engineering</p></div><strong>3.68<small>GPA</small></strong></div></section>
 <section class="closing reveal"><p class="micro">CURRENTLY</p><h2>Looking for teams solving<br><em>difficult, useful problems.</em></h2><p>Open to full-time AI/ML and software engineering opportunities across the United States.</p><div><a class="pill orange" href="mailto:nikshitharapolu@gmail.com">Email me ↗</a><a class="pill" href="https://www.linkedin.com/in/nikshitha-rapolu-18960321a/" target="_blank" rel="noreferrer">LinkedIn ↗</a><a class="pill" href="https://github.com/nikshitharapolu" target="_blank" rel="noreferrer">GitHub ↗</a></div></section>
 </main><footer><span>© <span id="year"></span> Nikshitha Rapolu</span><span>AI/ML · SEARCH · SOFTWARE</span><a href="#top">BACK TO TOP ↑</a></footer><script src="script.js"></script></body></html>
