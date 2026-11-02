@@ -67,9 +67,9 @@
         <div class="case-footer"><p>Python · PyTorch · YOLOv8 · ByteTrack · NLG</p><div><a class="pill orange" href="https://www.dropbox.com/scl/fo/x71idgrj137c665m3c3g6/ACdiEJdDxFWbHop97bkO0Pg?rlkey=fytodes2nm2145owsg5qlu766&amp;st=0yjqer0n&amp;dl=0" target="_blank" rel="noreferrer">Sample output ↗</a></div></div>
       </article>
       <article class="case-panel" id="case-search" role="tabpanel" aria-labelledby="tab-search" hidden>
-        <div class="case-head"><p class="micro">CASE FILE 04 · INFORMATION RETRIEVAL</p><h3>Hybrid Search<br>Engine</h3><p class="summary">Exact-term precision and semantic understanding, combined in one ranked result set.</p></div>
+        <div class="case-head"><p class="micro">CASE FILE 04 · INFORMATION RETRIEVAL</p><h3>Hybrid Search<br>Engine</h3><p class="summary">BM25 and MiniLM retrieval with evidence checks, LangSmith evaluation, and an AWS ECS deployment.</p></div>
         <div class="case-map"><div><span>A</span><b>Lexical</b><small>BM25 retrieval</small></div><div><span>B</span><b>Semantic</b><small>Transformer embeddings</small></div><div><span>Σ</span><b>Fuse</b><small>Normalized relevance scores</small></div><div><span>✓</span><b>Evaluate</b><small>NDCG@10 · Recall@10</small></div></div>
-        <p class="detail">An interactive Streamlit interface makes it possible to query the collection and inspect how lexical and semantic evidence shape the ranking.</p><div class="case-footer"><p>Python · BM25 · Sentence Transformers · Streamlit</p></div>
+        <p class="detail">Tuned hybrid retrieval reached 83.7% Recall@10 on 300 held-out SciFact queries. A separate 18-question development evaluation checked citations and abstention; the backend was deployed to AWS ECS with Terraform and CloudWatch monitoring.</p><div class="case-footer"><p>Python · FastAPI · LangGraph · LangSmith · AWS ECS · Terraform</p></div>
       </article>
       <article class="case-panel" id="case-grocery" role="tabpanel" aria-labelledby="tab-grocery" hidden>
         <div class="case-head"><p class="micro">CASE FILE 05 · FULL-STACK SYSTEM</p><h3>Grocery Price<br>Comparison</h3><p class="summary">A data pipeline and web application for comparing grocery prices across retailers.</p></div>
@@ -96,19 +96,20 @@
     <article class="project-card featured reveal" data-mark="IR">
       <div class="project-number">02</div><div class="project-content">
         <div class="project-labels"><span>Information retrieval</span><span>Secure RAG</span><span>Live</span></div><h3>Hybrid Search &amp; Secure RAG Platform</h3>
-        <p class="project-summary">Search that understands both keywords and meaning, then backs every answer with cited evidence. I wanted more than another RAG demo, so it checks its own results, retries once if they look weak, and says "I don't have enough information" instead of guessing.</p>
-<ul>
-  <li>Fuses BM25 ranking with 384-dimensional MiniLM embeddings and evaluates retrieval quality using NDCG@10 and Recall@10.</li>
-  <li>Supports PDF, TXT, and Markdown ingestion, overlapping chunks, persistent embedding caching, duplicate detection, prompt-injection protection, and validated fallback responses.</li>
-  <li>A LangGraph workflow, with a local Ollama model connected through LangChain, checks the evidence, rewrites a weak search and tries again once, then answers with citations or abstains. The app shows every step it took.</li>
-  <li>Compared the original and guided versions on 18 labeled questions and 19 automated tests pass.</li>
-  <li>Runs through FastAPI and Streamlit, with Docker Compose, local Kubernetes orchestration, Databricks vector analysis, and Terraform-provisioned S3-compatible storage and least-privilege IAM.</li>
-</ul>
-<div class="project-proof">
-  <span><strong>384D</strong> MiniLM embeddings</span>
-  <span><strong>6/6</strong> sandbox checks passed</span>
-</div>
-<p class="tech-line">Python · FastAPI · BM25 · Sentence Transformers · LangChain · LangGraph · Ollama · Docker · Kubernetes · Terraform · Moto · Databricks</p>
+        <p class="project-summary">BM25 and MiniLM search with an evidence-gated RAG workflow. The system checks whether retrieved passages contain the requested facts, retries a weak search once, and returns cited evidence or abstains. I evaluated both workflows in LangSmith and deployed the backend to AWS ECS using Terraform.</p>
+        <ul>
+          <li>Tuned fusion weights on 809 training queries. Across 5,183 SciFact documents and 300 held-out test queries, hybrid retrieval increased Recall@10 from 77.6% to 83.7% and NDCG@10 by 9.7% relative to BM25, with paired bootstrap analysis.</li>
+          <li>Built the guided workflow in LangGraph with LangChain–Ollama integration. On an 18-question development set, guided RAG abstained on all 6 unsupported questions versus none for the original, while preserving expected-source citations on all 12 answerable questions. The evaluation used extractive answers, not generated-answer quality scoring.</li>
+          <li>Added LangSmith traces for retrieval and workflow decisions, plus code-based evaluators for source retrieval, citations, abstention, and fallback mode. Traces show each retrieval, evidence check, retry, and abstention.</li>
+          <li>Deployed containerized FastAPI to AWS ECS Fargate with Terraform, a private encrypted and versioned S3 index snapshot, least-privilege IAM, CloudWatch logs and alarms, and SNS email notifications. Verified the deployment, then stopped compute; the separate Streamlit search demo remains available.</li>
+          <li>Supports PDF, TXT, and Markdown ingestion locally, with chunking, embedding caches, duplicate detection, and prompt-injection screening. The AWS demonstration uses a read-only snapshot. Deployment verification, shutdown instructions, and 36 passing automated tests are documented.</li>
+        </ul>
+        <div class="project-proof">
+          <span><strong>83.7%</strong> SciFact Recall@10</span>
+          <span><strong>6/6</strong> unsupported questions declined in development</span>
+          <span><strong>12/12</strong> expected-source citations in development</span>
+        </div>
+        <p class="tech-line">Python · FastAPI · BM25 · Sentence Transformers · LangChain · LangGraph · Ollama · LangSmith · Docker · Kubernetes · AWS ECS · S3 · Terraform · CloudWatch</p>
 
         <div class="project-links"><a class="pill orange" href="https://semantic-search-engine-nr.streamlit.app/" target="_blank" rel="noreferrer">Search demo ↗</a><a class="pill" href="https://github.com/nikshitharapolu/semantic-search-ir" target="_blank" rel="noreferrer">View source ↗</a></div>
       </div>
