@@ -67,9 +67,9 @@
         <div class="case-footer"><p>Python · PyTorch · YOLOv8 · ByteTrack · NLG</p><div><a class="pill orange" href="https://www.dropbox.com/scl/fo/x71idgrj137c665m3c3g6/ACdiEJdDxFWbHop97bkO0Pg?rlkey=fytodes2nm2145owsg5qlu766&amp;st=0yjqer0n&amp;dl=0" target="_blank" rel="noreferrer">Sample output ↗</a></div></div>
       </article>
       <article class="case-panel" id="case-search" role="tabpanel" aria-labelledby="tab-search" hidden>
-        <div class="case-head"><p class="micro">CASE FILE 04 · INFORMATION RETRIEVAL</p><h3>Hybrid Search<br>Engine</h3><p class="summary">BM25 and MiniLM retrieval with evidence checks, LangSmith evaluation, and an AWS ECS deployment.</p></div>
+        <div class="case-head"><p class="micro">CASE FILE 04 · INFORMATION RETRIEVAL</p><h3>Hybrid Search<br>Engine</h3><p class="summary">Scientific paper discovery with hybrid retrieval and guided evidence checks.</p></div>
         <div class="case-map"><div><span>A</span><b>Lexical</b><small>BM25 retrieval</small></div><div><span>B</span><b>Semantic</b><small>Transformer embeddings</small></div><div><span>Σ</span><b>Fuse</b><small>Normalized relevance scores</small></div><div><span>✓</span><b>Evaluate</b><small>NDCG@10 · Recall@10</small></div></div>
-        <p class="detail">83.7% Recall@10 on SciFact, with LangSmith-traced evidence checks and an AWS ECS backend provisioned through Terraform.</p><div class="case-footer"><p>Python · FastAPI · LangGraph · LangSmith · AWS ECS · Terraform</p></div>
+        <p class="detail">83.7% Recall@10 on the SciFact benchmark; live cross-subject paper discovery through OpenAlex.</p><div class="case-footer"><p>Python · TypeScript · React · FastAPI · LangGraph · AWS ECS · Terraform</p></div>
       </article>
       <article class="case-panel" id="case-grocery" role="tabpanel" aria-labelledby="tab-grocery" hidden>
         <div class="case-head"><p class="micro">CASE FILE 05 · FULL-STACK SYSTEM</p><h3>Grocery Price<br>Comparison</h3><p class="summary">A data pipeline and web application for comparing grocery prices across retailers.</p></div>
@@ -96,19 +96,19 @@
     <article class="project-card featured reveal" data-mark="IR">
       <div class="project-number">02</div><div class="project-content">
         <div class="project-labels"><span>Information retrieval</span><span>Secure RAG</span><span>Live</span></div><h3>Hybrid Search &amp; Secure RAG Platform</h3>
-        <p class="project-summary">Hybrid search and evidence-guided RAG, with LangSmith evaluation and a Terraform-managed AWS deployment.</p>
+        <p class="project-summary">Find scientific papers across subjects, inspect abstracts, and follow sources with guided evidence checks.</p>
         <ul>
           <li>Combined BM25 and MiniLM to reach 83.7% Recall@10 and improve NDCG@10 by 9.7% over BM25 on 300 held-out SciFact queries.</li>
-          <li>Built a LangGraph workflow traced in LangSmith. On 18 development questions using extractive answers, it declined all 6 unsupported questions while preserving expected-source citations on all 12 answerable cases.</li>
-          <li>Deployed Dockerized FastAPI on AWS ECS Fargate with Terraform, a private S3 index, scoped IAM, and CloudWatch logs and alarms. Compute runs on demand; the Streamlit demo remains available.</li>
+          <li>Published a React/TypeScript interface with OpenAlex discovery, subject filters, hybrid reranking of up to 40 candidates, publication references, and LangGraph-guided relevance checks.</li>
+          <li>Deployed FastAPI on AWS ECS Fargate using Terraform, S3, scoped IAM, and CloudWatch monitoring; added LangSmith development evaluations. AWS compute runs on demand; the public app uses Streamlit.</li>
         </ul>
         <div class="project-proof">
           <span><strong>83.7%</strong> SciFact Recall@10</span>
-          <span><strong>6/6</strong> unsupported dev questions declined</span>
+          <span><strong>OpenAlex</strong> cross-subject paper discovery</span>
         </div>
-        <p class="tech-line">Python · FastAPI · LangGraph · LangSmith · MiniLM · Docker · AWS ECS · S3 · Terraform · CloudWatch</p>
+        <p class="tech-line">Python · TypeScript · React · FastAPI · LangGraph · LangSmith · OpenAlex · AWS ECS · Terraform · CloudWatch</p>
 
-        <div class="project-links"><a class="pill orange" href="https://semantic-search-engine-nr.streamlit.app/" target="_blank" rel="noreferrer">Search demo ↗</a><a class="pill" href="https://github.com/nikshitharapolu/semantic-search-ir" target="_blank" rel="noreferrer">View source ↗</a></div>
+        <div class="project-links"><a class="pill orange" href="https://semantic-search-engine-nr.streamlit.app/" target="_blank" rel="noreferrer">Search demo ↗</a><a class="pill" href="https://github.com/nikshitharapolu/semantic-search-engine" target="_blank" rel="noreferrer">View source ↗</a></div>
       </div>
     </article>
     <article class="project-card reveal" data-mark="FF">
