@@ -58,7 +58,7 @@
       <article class="case-panel" id="case-focusfeed" role="tabpanel" aria-labelledby="tab-focusfeed" hidden>
         <div class="case-head"><p class="micro">CASE FILE 02 · PERSONAL AI</p><h3>FocusFeed</h3><p class="summary">A private information digest that learns a user’s interests from a one-time Instagram export.</p></div>
         <div class="case-map"><div><span>01</span><b>Profile</b><small>Activity signals → interest embeddings</small></div><div><span>02</span><b>Retrieve</b><small>GDELT · Google News · Hacker News</small></div><div><span>03</span><b>Rank</b><small>Semantic · TF-IDF · recency · feedback</small></div><div><span>04</span><b>Summarize</b><small>Local Qwen3 with citations</small></div></div>
-        <p class="detail">Semantic deduplication and topic/source constraints prevent a repetitive feed. PostgreSQL JSONB stores multi-user profiles while local inference keeps personalization private.</p><div class="case-footer"><p>FastAPI · PostgreSQL · MiniLM · Qwen3 · Docker</p></div>
+        <p class="detail">Semantic deduplication and source diversity keep briefings varied. Redis-backed RQ workers build briefings in the background, while the browser shows refresh progress and loads the finished briefing from PostgreSQL.</p><div class="case-footer"><p>FastAPI · PostgreSQL · Redis · RQ · MiniLM · Qwen3 · Docker Compose</p></div>
       </article>
       <article class="case-panel" id="case-f1" role="tabpanel" aria-labelledby="tab-f1" hidden>
         <div class="case-head"><p class="micro">CASE FILE 03 · COMPUTER VISION</p><h3>Vision-Based<br>F1 Race Analysis</h3><p class="summary">Broadcast video becomes structured race intelligence and real-time commentary.</p></div>
@@ -114,9 +114,9 @@
     <article class="project-card reveal" data-mark="FF">
       <div class="project-number">03</div><div class="project-content">
         <div class="project-labels"><span>Personalized AI</span><span>Recommendation System</span></div><h3>FocusFeed</h3>
-        <p class="project-summary">Turns a one-time Instagram data export into a personalized news profile - no account signup, no weeks of behavior tracking required. Ranks and summarizes stories for multiple users from that single starting point.</p>
-        <ul><li>Ranks content from GDELT, Google News, and Hacker News using semantic similarity, TF-IDF, recency, popularity, and feedback.</li><li>Applies semantic deduplication and source/topic diversity constraints to avoid repetitive feeds.</li><li>Generates concise, citation-backed summaries through a grounded local Qwen3 RAG pipeline.</li></ul>
-        <p class="tech-line">Python · FastAPI · PostgreSQL JSONB · Sentence Transformers · Qwen3 · Docker</p>
+        <p class="project-summary">Turns a one-time Instagram activity export into a personalized news briefing. FocusFeed builds a semantic interest profile from the export and learns from feedback on future stories.</p>
+        <ul><li>Ranks content from GDELT, Google News, and Hacker News using semantic similarity, TF-IDF, recency, popularity, and feedback.</li><li>Applies semantic deduplication and source/topic diversity constraints to avoid repetitive feeds.</li><li>Generates cited summaries from extracted article text using Qwen3 through Ollama.</li><li>Queues manual and scheduled refreshes with Redis and RQ, shows progress per account, and records processing time and near-duplicate removal.</li></ul>
+        <p class="tech-line">Python · FastAPI · PostgreSQL JSONB · Redis · RQ · Sentence Transformers · Qwen3 · Docker Compose</p>
         <div class="project-links"><a class="pill" href="https://github.com/nikshitharapolu/focusfeed" target="_blank" rel="noreferrer">View source ↗</a></div>
       </div>
     </article>
